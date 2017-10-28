@@ -1,11 +1,21 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
+version = '1.0'
 mainClassName = "hopur0.games.tictactoe.Game"
 
 sourceSets {
     main.java.srcDir "src/main"
     test.java.srcDir "src/test"
+}
+
+jar {
+    manifest {
+        attributes("Implementation-Title": "TicTacToe Jar",
+                   "Implementation-Version": version,
+                   "Main-Class": mainClassName)
+    }
+    baseName = "tictactoe"
 }
 
 repositories {
