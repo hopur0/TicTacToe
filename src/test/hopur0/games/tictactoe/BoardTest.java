@@ -36,6 +36,126 @@ public class BoardTest {
     }
 
     @Test
+    public void testNoWinner() {
+        Board b = new Board();
+        Player p1 = new Player("Tester1", 'x');
+        Player p2 = new Player("Tester2", 'o');
+        b.setTile(p1, 1);
+        b.setTile(p2, 2);
+        b.setTile(p1, 3);
+        assertEquals(b.winner(), null);
+    }
+
+    @Test
+    public void testHorizontalWinners() {
+        Player p = new Player("Tester", 'x');
+
+        // First horizontal
+        Board b = new Board();
+        b.setTile(p, 1);
+        b.setTile(p, 2);
+        b.setTile(p, 3);
+        assertEquals(b.winner(), p);
+
+        // Second horizontal
+        b = new Board();
+        b.setTile(p, 4);
+        b.setTile(p, 5);
+        b.setTile(p, 6);
+        assertEquals(b.winner(), p);
+
+        // Third horizontal
+        b = new Board();
+        b.setTile(p, 7);
+        b.setTile(p, 8);
+        b.setTile(p, 9);
+        assertEquals(b.winner(), p);
+    }
+
+    @Test
+    public void testVerticalWinners() {
+        Player p = new Player("Tester", 'x');
+
+        // First vertical
+        Board b = new Board();
+        b.setTile(p, 1);
+        b.setTile(p, 4);
+        b.setTile(p, 7);
+        assertEquals(b.winner(), p);
+
+        // Second vertical
+        b = new Board();
+        b.setTile(p, 2);
+        b.setTile(p, 5);
+        b.setTile(p, 8);
+        assertEquals(b.winner(), p);
+
+        // Third vertical
+        b = new Board();
+        b.setTile(p, 3);
+        b.setTile(p, 6);
+        b.setTile(p, 9);
+        assertEquals(b.winner(), p);
+    }
+
+    @Test
+    public void testDiagonalWinners() {
+        Player p = new Player("Tester", 'x');
+
+        // First diagonal
+        Board b = new Board();
+        b.setTile(p, 1);
+        b.setTile(p, 5);
+        b.setTile(p, 9);
+        assertEquals(b.winner(), p);
+
+        // Second diagonal
+        b = new Board();
+        b.setTile(p, 3);
+        b.setTile(p, 5);
+        b.setTile(p, 7);
+        assertEquals(b.winner(), p);
+    }
+
+    @Test
+    public void testBoardFull() {
+        Board b = new Board();
+        Player p = new Player("Tester", 'x');
+
+        b.setTile(p, 1);
+        b.setTile(p, 2);
+        b.setTile(p, 3);
+        b.setTile(p, 4);
+        b.setTile(p, 5);
+        b.setTile(p, 6);
+        b.setTile(p, 7);
+        b.setTile(p, 8);
+        b.setTile(p, 9);
+
+        assertEquals(b.full(), true);
+    }
+
+    @Test
+    public void testBoardEmpty() {
+        Board b = new Board();
+        assertEquals(b.full(), false);
+    }
+
+    @Test
+    public void testBoardHalfFull() {
+        Board b = new Board();
+        Player p = new Player("Tester", 'x');
+
+        b.setTile(p, 1);
+        b.setTile(p, 3);
+        b.setTile(p, 5);
+        b.setTile(p, 7);
+        b.setTile(p, 9);
+
+        assertEquals(b.full(), false);
+    }
+
+    @Test
     public void testInvalidTile() {
         try {
             Board b = new Board();
