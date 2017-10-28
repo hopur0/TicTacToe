@@ -1,4 +1,4 @@
-package hopur0.games.toetactic;
+package hopur0.games.tictactoe;
 
 class Game {
     public static void main(String[] args) {
