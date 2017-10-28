@@ -1,7 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
-mainClassName = "hopur0.games.toetactic.Game"
+mainClassName = "hopur0.games.tictactoe.Game"
 
 sourceSets {
     main.java.srcDir "src/main"
