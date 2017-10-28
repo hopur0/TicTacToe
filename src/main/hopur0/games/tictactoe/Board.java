@@ -7,10 +7,6 @@ class Board {
 
     public Board() {
         state = new Player[BOARD_SIZE];
-
-        for (Player p: state) {
-            System.out.println(p + " test");
-        }
     }
 
     public void setTile(Player pl, int tile) {
@@ -67,14 +63,14 @@ class Board {
 
         for (int i = 0; i < state.length; i++) {
             if (state[i] == null) {
-                sb.append('-');
+                sb.append(i + 1);
             } else {
                 sb.append(state[i].getSymbol());
             }
 
             if ((i + 1) % 3 == 0 && i != state.length - 1) {
                 sb.append(System.lineSeparator());
-            } else {
+            } else if (i != state.length - 1) {
                 sb.append(' ');
             }
         }

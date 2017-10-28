@@ -167,7 +167,20 @@ public class BoardTest {
             String expectedMessage = "Picked tile not on board";
             assertEquals(expectedMessage, ex.getMessage());
         }
+    }
 
+    @Test
+    public void testNegativeTile() {
+        try {
+            Board b = new Board();
+            Player p = new Player("Test", 'x');
+            b.setTile(p, -1);
+            fail("Did not throw error");
+        }
+        catch (IllegalArgumentException ex) {
+            String expectedMessage = "Picked tile not on board";
+            assertEquals(expectedMessage, ex.getMessage());
+        }
     }
 
     @Test
@@ -184,6 +197,26 @@ public class BoardTest {
             assertEquals(expectedMessage, ex.getMessage());
         }
 
+    }
+
+    @Test
+    public void testToString() {
+        Board b = new Board();
+        Player p1 = new Player("Tester1", 'x');
+        Player p2 = new Player("Tester2", 'o');
+
+        assertEquals(b.toString(),
+                     "1 2 3" + System.lineSeparator()
+                     + "4 5 6" + System.lineSeparator()
+                     + "7 8 9");
+
+        b.setTile(p1, 1);
+        b.setTile(p2, 2);
+
+        assertEquals(b.toString(),
+                     "x o 3" + System.lineSeparator()
+                     + "4 5 6" + System.lineSeparator()
+                     + "7 8 9");
     }
 
 }
