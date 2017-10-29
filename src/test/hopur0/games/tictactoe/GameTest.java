@@ -21,4 +21,15 @@ public class GameTest {
 		assertEquals(g.players[1].getName(), "Hrafn");
 		
     }
+	
+	@Test
+	public void testGameLoop() {
+		
+		String data = "Viktor\nHrafn\n1\n4\n2\n5\n3\n";
+		Game g = new Game(new ByteArrayInputStream(data.getBytes()));
+			
+		
+		assertEquals(g.board.winner().getName(), "Viktor");
+		
+    }
 }
