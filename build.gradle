@@ -4,7 +4,7 @@ apply plugin: 'eclipse'
 apply plugin: 'jacoco'
 
 version = '1.0'
-mainClassName = "hopur0.games.tictactoe.Game"
+mainClassName = "hopur0.games.tictactoe.WebGame"
 
 sourceSets {
     main.java.srcDir "src/main"
