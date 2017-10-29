@@ -16,8 +16,8 @@ class Game {
 		String firstPlayerName = ui.getString("Enter first player name:");
 		String secondPlayerName = ui.getString("Enter second player name:");
 		players = new Player[] {
-			new Player(firstPlayerName, 'x'),
-			new Player(secondPlayerName, 'o')
+			new Player(firstPlayerName, 'X'),
+			new Player(secondPlayerName, 'O')
 		};
 	}
 
