@@ -52,8 +52,8 @@ public class TUITest {
 	}
 
 	@Test
-	public void testCorrectStringInputNoNewline() {
-		String data = "\nString";
+	public void testCorrectStringInputNoHasNextLine() {
+		String data = "\n\nString";
 		TUI tui = new TUI(new ByteArrayInputStream(data.getBytes()));
         assertEquals("String", tui.getString(""));
 	}
