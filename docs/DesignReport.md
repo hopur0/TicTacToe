@@ -21,3 +21,10 @@ The player class holds information about the player, e.x. name and marker.
 The board class holds the state of the board (which players have marked which space) and knows when the game has been won.
 #### Game class
 The game class holds the game loop it has, a instance of a UI class to request data from the user, a instance of the Board class and two instances of the Player class.
+
+### Unit tests
+#### TDD
+A wise man once said.
+> Test driven development is the only realistic way to write good unit tests
+>
+> &mdash; <cite>Hannes</cite>
