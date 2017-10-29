@@ -6,7 +6,7 @@ import java.io.ByteArrayInputStream;
 import org.junit.Test;
 
 public class TUITest {
-	
+
 	// tests for getInt
 	@Test
 	public void testInvalidIntInputThenCorrect() {
@@ -28,7 +28,7 @@ public class TUITest {
 		TUI tui = new TUI(new ByteArrayInputStream(data.getBytes()));
         assertEquals(501, tui.getInt(""));
 	}
-	
+
 	// tests for getString
 	@Test
 	public void testInvalidStringInputThenCorrect() {
@@ -47,6 +47,13 @@ public class TUITest {
 	@Test
 	public void testCorrectStringInput() {
 		String data = "String";
+		TUI tui = new TUI(new ByteArrayInputStream(data.getBytes()));
+        assertEquals("String", tui.getString(""));
+	}
+
+	@Test
+	public void testCorrectStringInputNoHasNextLine() {
+		String data = "\n\nString";
 		TUI tui = new TUI(new ByteArrayInputStream(data.getBytes()));
         assertEquals("String", tui.getString(""));
 	}
@@ -72,7 +79,7 @@ public class TUITest {
 		TUI tui = new TUI(new ByteArrayInputStream(data.getBytes()));
         assertEquals('H', tui.getChar(""));
 	}
-	
+
 	// tests for options
 	@Test
 	public void testOptions() {
@@ -81,4 +88,21 @@ public class TUITest {
 		String[] options = new String[5];
         assertEquals(1, tui.options(options));
 	}
+
+	@Test
+	public void testWrongOptionThenRightOption() {
+		String data = "-1\n1";
+		TUI tui = new TUI(new ByteArrayInputStream(data.getBytes()));
+		String[] options = new String[5];
+		assertEquals(1, tui.options(options));
+	}
+
+	@Test
+	public void testTooHighOptionThenRightOption() {
+		String data = "10\n1";
+		TUI tui = new TUI(new ByteArrayInputStream(data.getBytes()));
+		String[] options = new String[5];
+		assertEquals(1, tui.options(options));
+	}
+
 }

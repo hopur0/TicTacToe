@@ -5,11 +5,37 @@ class Game {
 	Board board;
 	Player[] players;
 
+	public Game(java.io.InputStream in) {
+		this.ui = new TUI(in);
+		board = new Board();
+		initializePlayers();
+		showMenu();
+	}
+
 	public Game(UI ui) {
 		this.ui = ui;
 		board = new Board();
 		initializePlayers();
-		gameLoop();
+		showMenu();
+	}
+
+	private void showMenu() {
+		String[] options = new String[] {
+			"New game",
+			"Change players",
+			"Exit"
+		};
+		int res = ui.options(options);
+
+		if (res == 1) {
+			// reset board
+			board = new Board();
+			gameLoop();
+		} else if (res == 2) {
+			initializePlayers();
+			showMenu();
+		} else if (res == 3)
+			return;
 	}
 
 	private void initializePlayers() {
@@ -47,6 +73,7 @@ class Game {
 			Player winner = board.winner();
 			ui.showMessage(winner.getName() + " is the winner!");
 		}
+		showMenu();
 	}
 
 	public static void main(String[] args) {
