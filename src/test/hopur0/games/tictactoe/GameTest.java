@@ -11,16 +11,28 @@ public class GameTest {
 
 	@Test
 	public void testInitializingPlayers() {
-		String data = "Viktor\nHrafn\n1\n4\n2\n5\n3\n3\n";
+		String data = "Viktor\nHrafn\n3\n";
 		Game g = new Game(new ByteArrayInputStream(data.getBytes()));
 		assertEquals(g.players[0].getName(), "Viktor");
 		assertEquals(g.players[1].getName(), "Hrafn");
 	}
-
+	
+	@Test
+	public void testChangePlayersName() {
+		String data = "Viktor\nHrafn\n2\nSiggi\nDadi\n3\n";
+		Game g = new Game(new ByteArrayInputStream(data.getBytes()));
+		assertEquals(g.players[0].getName(), "Siggi");
+		assertEquals(g.players[1].getName(), "Dadi");
+	}
+	
 	@Test
 	public void testEnteringWrongTile() {
-		String data = "Viktor\nHrafn\n1\n1\n4\n2\n5\n3\n3\n";
+		String data = "Viktor\nHrafn\n1\n1\n1\n4\n2\n5\n3\n3\n";
 		Game g = new Game(new ByteArrayInputStream(data.getBytes()));
+		assertEquals(g.board.winner().getName(), "Viktor");
+		
+		data = "Viktor\nHrafn\n1\n1\n11\n4\n2\n5\n3\n3\n";
+		g = new Game(new ByteArrayInputStream(data.getBytes()));
 		assertEquals(g.board.winner().getName(), "Viktor");
 	}
 
