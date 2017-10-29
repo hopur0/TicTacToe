@@ -45,7 +45,8 @@ public class WebGame {
 			});
 
 		put("/settile/:uuid/:playerId/:tile", (req, res) -> {
-				Board board = boards.get(req.params("uuid"));
+				String id = req.params("uuid");
+				Board board = boards.get(id);
 				if (board == null)
 					return null;
 				int playerId = Integer.parseInt(req.params("playerId"));
@@ -60,14 +61,19 @@ public class WebGame {
 				}
 				board.setTile(players[playerId], tile);
 
+				String result = board.toString();
 				// Check if winner or board full
 				if (board.winner() == null && board.full()) {
-					return board.toString() + "\n" + "Draw!";
+					result += "\nDraw!";
+					boards.remove(id);
+					return result;
 				} else if (board.winner() != null) {
 					Player winner = board.winner();
-					return board.toString() + "\n" + winner.getSymbol() + " is the winner!";
+					result +=  "\n" + winner.getSymbol() + " is the winner!";
+					boards.remove(id);
+					return result;
 				} else {
-					return board.toString();
+					return result;
 				}
 			});
 	}
