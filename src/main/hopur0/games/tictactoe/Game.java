@@ -41,7 +41,7 @@ class Game {
 		ui.showMessage("----------------------------");
 		ui.showMessage("Final state:" + System.lineSeparator() + board.toString());
 
-		if (board.full()) {
+		if (board.winner() == null && board.full()) {
 			ui.showMessage("Draw!");
 		} else {
 			Player winner = board.winner();
