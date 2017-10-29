@@ -26,3 +26,10 @@ repositories {
 dependencies {
      testCompile group: 'junit', name: 'junit', version: '4.+'
 }
+
+
+test {
+    testLogging {
+        exceptionFormat = 'full'
+    }
+}
