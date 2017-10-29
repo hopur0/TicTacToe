@@ -25,6 +25,12 @@ public class WebGame {
 	}
 
 	public void serve() {
+		int port = 4567;
+		if (System.getProperty("server.port") != null) {
+			port = Integer.parseInt(System.getProperty("server.port"));
+		}
+		System.out.println(port);
+		port(port);
 		staticFileLocation("/public");
 		get("/", (req, res) -> renderContent("index.html"));
 
