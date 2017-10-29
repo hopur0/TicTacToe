@@ -45,6 +45,7 @@ public class GameTest {
 		assertEquals(g.board.winner().getName(), "Viktor");
 		
     }
+
 	@Test
 	public void testGameLoopDraw() {
 		
