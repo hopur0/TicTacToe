@@ -5,6 +5,7 @@ layout: default
 [Back](index).
 
 # Development manual
+Here you will find all the necessary info to help develop TicTacToe.
 
 ## Requirements
 * Git
