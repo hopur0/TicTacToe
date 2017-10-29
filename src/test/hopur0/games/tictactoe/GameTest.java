@@ -8,6 +8,13 @@ import java.io.ByteArrayInputStream;
 import org.junit.Test;
 
 public class GameTest {
+	
+	@Test
+	public void testGameLoop() {	
+		String data = "Viktor\nHrafn\n1\n1\n4\n2\n5\n3\n3\n";
+		Game g = new Game(new ByteArrayInputStream(data.getBytes()));
+		assertEquals(g.board.winner().getName(), "Viktor");
+  }
 
 	@Test
 	public void testInitializingPlayers() {
@@ -64,6 +71,6 @@ public class GameTest {
 		UI ui = new TUI(new ByteArrayInputStream(data.getBytes()));
 		Game g = new Game(ui);
 		assertEquals(g.board.winner(), null);
-    }
-
+  }
+  
 }
