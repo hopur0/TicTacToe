@@ -23,5 +23,5 @@ in case of client/server or web application.
 ### Created by
 - [Daði Sigursveinn Harðarson](https://github.com/dadisigursveinn)  
 - [Hrafn Logi Hermannsson](https://github.com/hrafnlogi)  
-- [Sigurður Björn Karlsson](https://github.com/siggibk.)
+- [Sigurður Björn Karlsson](https://github.com/siggibk)
 - [Viktor Sævarsson](https://github.com/Fanarito)
