@@ -3,14 +3,14 @@ package hopur0.games.tictactoe;
 import java.util.Scanner;
 
 public class TUI implements UI {
-	private java.io.InputStream inStream;
+	private Scanner scanner;
 
 	public TUI() {
-		inStream = System.in;
+		scanner = new Scanner(System.in);
 	}
 
 	public TUI(java.io.InputStream inputStream) {
-		inStream = inputStream;
+		scanner = new Scanner(inputStream);
 	}
 
 	@Override
@@ -33,7 +33,6 @@ public class TUI implements UI {
 	@Override
 	public String getString(String message) {
 		showMessage(message);
-		Scanner scanner = new Scanner(inStream);
 		String s = "";
 		while (s.isEmpty()) {
 			while (!scanner.hasNextLine()) {
@@ -53,7 +52,6 @@ public class TUI implements UI {
 	@Override
 	public int getInt(String message) {
 		showMessage(message);
-		Scanner scanner = new Scanner(inStream);
 		while (!scanner.hasNextInt()) {
 			showMessage("Please enter a number!");
 		    scanner.next();
