@@ -21,7 +21,8 @@ which you can run.
 
 ## Walkthrough
 1. `git clone https://github.com/hopur0/TicTacToe`
-2. `cd TicTacToe`
-3. `gradle check`
-4. Make changes
-5. `gradle check`
+1. `cd TicTacToe`
+1. Create feature branch
+1. Make changes
+1. `gradle check`
+1. If all checks pass, and you are happy with your code, you can create a pull request and request a review for it.
