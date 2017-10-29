@@ -2,6 +2,9 @@
 layout: default
 ---
 
+[![Build Status](https://travis-ci.org/hopur0/TicTacToe.svg?branch=master)](https://travis-ci.org/hopur0/TicTacToe)
+[![codecov](https://codecov.io/gh/hopur0/TicTacToe/branch/master/graph/badge.svg)](https://codecov.io/gh/hopur0/TicTacToe)
+
 # [](#design-report)Design report
 Describes the design.
 [View more](DesignReport).
