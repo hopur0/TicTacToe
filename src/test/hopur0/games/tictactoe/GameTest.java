@@ -45,4 +45,15 @@ public class GameTest {
 		assertEquals(g.board.winner().getName(), "Viktor");
 		
     }
+	@Test
+	public void testGameLoopDraw() {
+		
+		String data = "Viktor\nHrafn\n1\n5\n2\n3\n7\n4\n6\n8\n9\n";
+		UI ui = new TUI(new ByteArrayInputStream(data.getBytes()));
+		
+		Game g = new Game(ui);		
+			
+		assertEquals(g.board.winner(), null);
+		
+    }
 }
