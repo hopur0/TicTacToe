@@ -4,7 +4,7 @@ class Game {
 	UI ui;
 	Board board;
 	Player[] players;
-	
+
 	public Game(java.io.InputStream in) {
 		this.ui = new TUI(in);
 		board = new Board();
