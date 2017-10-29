@@ -53,7 +53,16 @@ public class WebGame {
 					return "Tile occupied";
 				}
 				board.setTile(players[playerId], tile);
-				return board.toString();
+
+				// Check if winner or board full
+				if (board.winner() == null && board.full()) {
+					return board.toString() + "\n" + "Draw!";
+				} else if (board.winner() != null) {
+					Player winner = board.winner();
+					return board.toString() + "\n" + winner.getSymbol() + " is the winner!";
+				} else {
+					return board.toString();
+				}
 			});
 	}
 

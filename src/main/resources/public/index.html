@@ -2,9 +2,73 @@
 <html>
 	<head>
 		<title>TicTacToe</title>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://unpkg.com/vue"></script>
 	</head>
 
 	<body>
-		<h1>Wow</h1>
+		<div id="app">
+			<textarea id="output" v-model="output" readonly cols="60" id="" name="" rows="20">
+			</textarea>
+			<br/>
+			<input type="text" v-model="input" v-bind:disabled="inputDisabled" @keyUp.enter="setTile"/>
+		</div>
+
+		<script type="application/javascript">
+		 var app = new Vue({
+			 el: '#app',
+			 data: {
+				 output: '',
+				 input: '',
+				 gameId: '',
+				 inputDisabled: true,
+				 currentPlayer: 0
+			 },
+			 methods: {
+				 appendOutput(message) {
+					 this.output += message + "\n";
+					 var outputBox = document.getElementById("output");
+					 outputBox.scrollTop = outputBox.scrollHeight;
+				 },
+				 startGame() {
+					 var self = this;
+					 self.appendOutput("Creating game...");
+					 return axios.post('/newgame', {})
+						  .then(function (response) {
+							  console.log(response);
+							  self.gameId = response.data;
+							  self.inputDisabled = false;
+							  self.appendOutput("Game ID: " + response.data);
+						  });
+				 },
+				 displayState() {
+					 var self = this;
+					 axios.get('/state/' + self.gameId)
+						  .then(function (response) {
+							  console.log(response);
+							  self.appendOutput("Current state:\n" + response.data);
+						  });
+				 },
+				 setTile() {
+					 var self = this;
+					 self.appendOutput("Sending move...");
+					 return axios.put(`/settile/${self.gameId}/${self.currentPlayer}/${self.input}`, {})
+								 .then(function (response) {
+									 self.input = '';
+									 console.log(response);
+									 self.appendOutput("Current state:\n" + response.data);
+									 self.currentPlayer = (self.currentPlayer + 1) % 2;
+								 });
+				 }
+			 },
+			 created: function() {
+				 var self = this;
+				 this.startGame()
+					 .then(function () {
+						 self.displayState();
+					 });
+			 }
+		 });
+		</script>
 	</body>
 </html>
