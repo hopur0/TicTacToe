@@ -9,7 +9,7 @@ class Game {
 		this.ui = new TUI(in);
 		board = new Board();
 		initializePlayers();
-		gameLoop();
+		showMenu();
 	}
 
 	public Game(UI ui) {
