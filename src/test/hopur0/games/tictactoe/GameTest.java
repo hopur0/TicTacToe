@@ -11,18 +11,14 @@ public class GameTest {
 	@Test
     public void testInitializingPlayers() {
 		
-		
-		String data = "Viktor\nHrafn\n";
-		Game g = new Game(new ByteArrayInputStream(data.getBytes()));		
-		
-		
+		String data = "Viktor\nHrafn\n1\n4\n2\n5\n3\n";
+		Game g = new Game(new ByteArrayInputStream(data.getBytes()));
+			
 		Player player0 = new Player("Viktor", 'X');
 		Player player1 = new Player("Hrafn", 'O');
-		
-		assertEquals(g.players[0], player0);
-		assertEquals(g.players[1], player1);
-		
 			
+		assertEquals(g.players[0].getName(), "Viktor");
+		assertEquals(g.players[1].getName(), "Hrafn");
 		
     }
 }
