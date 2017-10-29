@@ -9,6 +9,7 @@ class Game {
     this.ui = ui;
     board = new Board();
     initializePlayers();
+    gameLoop();
   }
 
   private void initializePlayers() {
@@ -24,12 +25,21 @@ class Game {
     int currentPlayer = 0;
 
     while (board.winner() == null && !board.full()) {
+      ui.showMessage("----------------------------");
       ui.showMessage("Current state:" + System.lineSeparator() + board.toString());
       ui.showMessage(players[currentPlayer].getName() + " plays:");
-      int selectedTile = ui.getInt("Enter tile number:");
+
+      int selectedTile = 0;
+      do {
+        selectedTile = ui.getInt("Enter tile number:");
+      } while (!board.validTile(selectedTile) || board.getTile(selectedTile) != null);
+
       board.setTile(players[currentPlayer], selectedTile);
       currentPlayer = (currentPlayer + 1) % 2;
     }
+
+    ui.showMessage("----------------------------");
+    ui.showMessage("Final state:" + System.lineSeparator() + board.toString());
 
     if (board.full()) {
       ui.showMessage("Draw!");
@@ -40,5 +50,6 @@ class Game {
   }
 
   public static void main(String[] args) {
+    new Game(new TUI());
   }
 }
