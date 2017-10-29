@@ -51,6 +51,13 @@ public class TUITest {
         assertEquals("String", tui.getString(""));
 	}
 
+	@Test
+	public void testCorrectStringInputNoHasNextLine() {
+		String data = "\n\nString";
+		TUI tui = new TUI(new ByteArrayInputStream(data.getBytes()));
+        assertEquals("String", tui.getString(""));
+	}
+	
 	// tests for getChar
 	@Test
 	public void testInvalidCharInputThenCorrect() {
