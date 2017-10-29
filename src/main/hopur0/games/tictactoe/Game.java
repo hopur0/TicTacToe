@@ -50,6 +50,6 @@ class Game {
 	}
 
 	public static void main(String[] args) {
-		new Game(new WUI());
+		new Game(new TUI());
   }
 }
