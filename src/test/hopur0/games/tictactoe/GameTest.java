@@ -26,4 +26,11 @@ public class GameTest {
 		assertEquals(g.board.winner().getName(), "Viktor");
 	}
 
+	@Test
+	public void testMultipleGamesInARow() {
+		String data = "Viktor\nHrafn\n1\n1\n4\n2\n5\n3\n1\n4\n1\n5\n2\n7\n3\n3\n";
+		Game g = new Game(new ByteArrayInputStream(data.getBytes()));
+		assertEquals(g.board.winner().getName(), "Hrafn");
+	}
+
 }

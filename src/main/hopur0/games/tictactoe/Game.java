@@ -27,13 +27,14 @@ class Game {
 		};
 		int res = ui.options(options);
 
-		if (res == 1)
+		if (res == 1) {
+			// reset board
+			board = new Board();
 			gameLoop();
-		else if (res == 2) {
+		} else if (res == 2) {
 			initializePlayers();
 			showMenu();
-		}
-		else if (res == 3)
+		} else if (res == 3)
 			return;
 	}
 
