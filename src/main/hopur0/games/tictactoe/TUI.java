@@ -4,15 +4,15 @@ import java.util.Scanner;
 
 public class TUI implements UI {
 	private java.io.InputStream inStream;
-	
+
 	public TUI() {
 		inStream = System.in;
 	}
-	
+
 	public TUI(java.io.InputStream inputStream) {
 		inStream = inputStream;
 	}
-	
+
 	@Override
 	public int options(String[] options) {
 		for (int option = 0; option < options.length; option++) {
@@ -42,7 +42,6 @@ public class TUI implements UI {
 			}
 			s = scanner.nextLine();
 		}
-		scanner.close();
 		return s;
 	}
 
@@ -60,13 +59,12 @@ public class TUI implements UI {
 		    scanner.next();
 		}
 		int n = scanner.nextInt();
-		scanner.close();
 		return n;
 	}
 
 	@Override
 	public void showMessage(String message) {
-		System.out.println(message);		
+		System.out.println(message);
 	}
 
 }
