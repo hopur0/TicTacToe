@@ -9,8 +9,12 @@ class Board {
         state = new Player[BOARD_SIZE];
     }
 
+    public boolean validTile(int tile) {
+        return (1 <= tile && tile <= BOARD_SIZE);
+    }
+
     public void setTile(Player pl, int tile) {
-        if (1 > tile || tile > BOARD_SIZE)
+        if (!validTile(tile))
             throw new IllegalArgumentException("Picked tile not on board");
         else if (state[tile - 1] != null)
             throw new IllegalArgumentException("Tile is already occupied");
@@ -18,7 +22,7 @@ class Board {
     }
 
     public Player getTile(int tile) {
-        if (1 > tile || tile > BOARD_SIZE)
+        if (!validTile(tile))
             throw new IllegalArgumentException("Picked tile not on board");
         return state[tile - 1];
     }
