@@ -20,7 +20,7 @@ How to set it up and get it to run, also on a fresh machine. How to install and 
 in case of client/server or web application.
 [View more](AdministrationManual).
 
-### Crated by
+### Created by
 - [Daði Sigursveinn Harðarson](https://github.com/dadisigursveinn)  
 - [Hrafn Logi Hermannsson](https://github.com/hrafnlogi)  
 - [Viktor Sævarsson](https://github.com/siggibk)  
