@@ -37,15 +37,31 @@ public class BoardTest {
 
     @Test
     public void testNoWinner() {
-        Board b = new Board();
-        Player p1 = new Player("Tester1", 'x');
+    	Player p1 = new Player("Tester1", 'x');
         Player p2 = new Player("Tester2", 'o');
+        
+        // no winner
+    	Board b = new Board();
         b.setTile(p1, 1);
         b.setTile(p2, 2);
         b.setTile(p1, 3);
         assertEquals(b.winner(), null);
+        
+        // board full no winner
+    	b = new Board();
+        b.setTile(p1, 1);
+        b.setTile(p2, 2);
+        b.setTile(p1, 3);
+        b.setTile(p1, 5);
+        b.setTile(p2, 4);
+        b.setTile(p1, 6);
+        b.setTile(p2, 7);
+        b.setTile(p1, 8);
+        b.setTile(p2, 9);
+        assertEquals(b.winner(), null);
+        
     }
-
+    
     @Test
     public void testHorizontalWinners() {
         Player p = new Player("Tester", 'x');
@@ -218,5 +234,17 @@ public class BoardTest {
                      + "4 5 6" + System.lineSeparator()
                      + "7 8 9");
     }
-
+    
+    @Test
+    public void testgetInvalidTile() {
+    	try {
+            Board b = new Board();
+            b.getTile(10);
+            fail("Did not throw error");
+        }
+        catch (IllegalArgumentException ex) {
+            String expectedMessage = "Picked tile not on board";
+            assertEquals(expectedMessage, ex.getMessage());
+        }
+    }
 }
