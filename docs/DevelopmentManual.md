@@ -5,4 +5,15 @@ layout: default
 [Back](index).
 
 # Development manual
-*The development manual describes what is needed and how to get the project to build on a fresh machine, source control client and access to source control Build environment and other necessary dependencies for development.*
+
+## Requirements
+* Git
+* Java 8+ (either openjdk or oraclejdk should work)
+* Gradle
+
+## Testing
+To test the application run `gradle check`, all new code should be tested.
+
+## Building the jar file
+Building the jar file is as simple as running `gradle jar`. That will deposit a jar file inside `build/libs`
+which you can run.
