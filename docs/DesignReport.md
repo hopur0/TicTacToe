@@ -1,3 +1,9 @@
+---
+layout: default
+---
+
+[Back](index).
+
 # Design report
 *Describes the initial design.*
 We are implementing the game TicTacToe.
