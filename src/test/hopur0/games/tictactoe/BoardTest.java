@@ -49,17 +49,64 @@ public class BoardTest {
         
         // board full no winner
     	b = new Board();
-        b.setTile(p1, 1);
-        b.setTile(p2, 2);
-        b.setTile(p1, 3);
-        b.setTile(p1, 5);
-        b.setTile(p2, 4);
-        b.setTile(p1, 6);
-        b.setTile(p2, 7);
-        b.setTile(p1, 8);
-        b.setTile(p2, 9);
+    	b.setTile(p1, 1);
+    	b.setTile(p2, 2);
+    	b.setTile(p1, 3);
+    	b.setTile(p1, 5);
+    	b.setTile(p2, 4);
+    	b.setTile(p1, 6);
+    	b.setTile(p2, 7);
+    	b.setTile(p1, 8);
+    	b.setTile(p2, 9);
         assertEquals(b.winner(), null);
         
+        b = new Board();
+    	b.setTile(p1, 1);
+    	b.setTile(p2, 2);
+    	b.setTile(p2, 3);
+    	b.setTile(p2, 4);
+    	b.setTile(p1, 5);
+    	b.setTile(p1, 6);
+    	b.setTile(p1, 7);
+    	b.setTile(p1, 8);
+    	b.setTile(p2, 9);
+        assertEquals(b.winner(), null);
+        
+        b = new Board();
+    	b.setTile(p1, 1);
+    	b.setTile(p2, 2);
+    	b.setTile(p1, 3);
+    	b.setTile(p1, 4);
+    	b.setTile(p2, 5);
+    	b.setTile(p2, 6);
+    	b.setTile(p2, 7);
+    	b.setTile(p1, 8);
+    	b.setTile(p1, 9);
+        assertEquals(b.winner(), null);
+        
+        b = new Board();
+    	b.setTile(p1, 1);
+    	b.setTile(p1, 2);
+    	b.setTile(p2, 3);
+    	b.setTile(p2, 4);
+    	b.setTile(p2, 5);
+    	b.setTile(p1, 6);
+    	b.setTile(p1, 7);
+    	b.setTile(p2, 8);
+    	b.setTile(p1, 9);
+        assertEquals(b.winner(), null);
+        
+        b = new Board();
+    	b.setTile(p1, 1);
+    	b.setTile(p2, 2);
+    	b.setTile(p1, 3);
+    	b.setTile(p2, 4);
+    	b.setTile(p1, 5);
+    	b.setTile(p1, 6);
+    	b.setTile(p2, 7);
+    	b.setTile(p1, 8);
+    	b.setTile(p2, 9);
+        assertEquals(b.winner(), null);
     }
     
     @Test
