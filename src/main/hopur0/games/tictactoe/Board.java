@@ -59,7 +59,7 @@ class Board {
             if (p == null)
                 return false;
         }
-        return false;
+        return true;
     }
 
     public String toString() {
