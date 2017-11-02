@@ -28,7 +28,7 @@ class Board {
     }
 
     public Player winner() {
-        // Check horizontals
+        // Check horizontal
         if (state[0] != null && state[0] == state[1] && state[1] == state[2])
             return state[0];
         if (state[3] != null && state[3] == state[4] && state[4] == state[5])
